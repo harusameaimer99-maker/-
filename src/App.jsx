@@ -12,7 +12,7 @@ export default function App() {
             <div key={post.id} style={{ marginBottom: '20px', borderBottom: '1px solid　#ccc' }}>
               <h2>{post.title}</h2>
               <p> {new Date(post.createdAt).toLocaleDateString()}</p>
-              <p>{post.content}</p>
+              <div  dangerouslySetInnerHTML={{__html:post.content}}/>
             </div>
           );
         })}
