@@ -5,6 +5,14 @@ export default function PostDetail() {
   const { id } = useParams();
   const post = posts.find((p) => p.id === Number(id));
 
+  if (!post) {
+    return (
+      <div >
+        <h2>記事が見つかりませんでした</h2>
+        <Link to="/"> 記事一覧に戻る</Link>
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: "20px" }}>
@@ -19,7 +27,7 @@ export default function PostDetail() {
       />
       
       <div style={{ marginTop: "40px" }}>
-        <Link to="/">← 記事一覧に戻る</Link>
+        <Link to="/"> 記事一覧に戻る</Link>
       </div>
     </div>
   );

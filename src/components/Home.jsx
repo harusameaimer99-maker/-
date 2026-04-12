@@ -9,7 +9,7 @@ export default function Home() {
       <div className={styles['post-list']}>
         {posts.map((post) => (
           <div key={post.id} >
-            <Link to={`/post/${post.id}`}>
+            <Link to={`/posts/${post.id}`}>
               <h2>{post.title}</h2>
             </Link>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
