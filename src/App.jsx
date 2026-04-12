@@ -1,22 +1,12 @@
-import styles from './App.module.css';
-import {posts} from './data/posts';
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
+import PostDetail from './components/PostDetail'
 
 export default function App() {
   return (
-
-    <div>
-      <h1>記事一覧</h1>
-      <div className={styles['post-list']}>
-        {posts.map((post) => {
-          return (
-            <div key={post.id} style={{ marginBottom: '20px', borderBottom: '1px solid　#ccc' }}>
-              <h2>{post.title}</h2>
-              <p> {new Date(post.createdAt).toLocaleDateString()}</p>
-              <div  dangerouslySetInnerHTML={{__html:post.content}}/>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/post/:id" element={<PostDetail />} />
+    </Routes>
   );
 }
