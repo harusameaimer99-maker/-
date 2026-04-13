@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import styles from './Home.module.css'
 import { Link } from 'react-router-dom'
 
+
 export default function Home() {
 
 const [posts,setPosts]=useState([])
+const [isLoading, setIsLoading] = useState(true);
 
 useEffect(()=>{
   const fetcher=async()=>{
@@ -12,17 +14,21 @@ useEffect(()=>{
     const data=await res.json()
 
     setPosts(data.posts)
+    setIsLoading(false);
   }
 
   fetcher()
 },[])
 
+if (isLoading) {
+  return <h2>読み込み中...</h2>;
+}
 
 
 if (posts.length===0) {
     return (
       <div >
-        <h2>y読み込み中</h2>
+        <h2> 記事が見つかりませんでした</h2>
         <Link to="/"> 記事一覧に戻る</Link>
       </div>
     );
