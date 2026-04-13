@@ -20,7 +20,7 @@ export default function PostDetail() {
   if (!post) {
     return (
       <div >
-        <h2>y読み込み中</h2>
+        <h2>記事が見つかりませんでした</h2>
         <Link to="/"> 記事一覧に戻る</Link>
       </div>
     );
@@ -31,7 +31,7 @@ export default function PostDetail() {
       <h1>{post.title}</h1>
       <p >{new Date(post.createdAt).toLocaleDateString()}</p>
       <hr />
-      
+
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
       
       <div style={{ marginTop: "40px" }}>

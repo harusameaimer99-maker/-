@@ -1,7 +1,7 @@
 import './App.module.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './Home'
-import PostDetail from './PostDetail'
+import Home from './Home.jsx'
+import PostDetail from './PostDetail.jsx'
 
 export default function App() {
   return (

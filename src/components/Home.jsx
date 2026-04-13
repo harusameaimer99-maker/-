@@ -17,6 +17,19 @@ useEffect(()=>{
   fetcher()
 },[])
 
+
+
+if (posts.length===0) {
+    return (
+      <div >
+        <h2>y読み込み中</h2>
+        <Link to="/"> 記事一覧に戻る</Link>
+      </div>
+    );
+  }
+
+
+
   return (
     <div>
       <h1>記事一覧</h1>
