@@ -4,19 +4,37 @@ import { useState,useEffect } from "react"
 export default function PostDetail() {
   const { id } = useParams();
   const [post,setPost]=useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(()=>{
     const fetcher=async()=>{
+
+        setIsLoading(true)
+
         const res=await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`)
         const data =await res.json()
 
         setPost(data.post)
+        setIsLoading(false)
 
     }
 
     fetcher()
   },[id])
 
+
+
+  if (isLoading) {
+    return (
+      <div>
+        <h2>読み込み中...</h2>
+        <Link to="/"> 記事一覧に戻る</Link>
+      </div>
+    );
+  }
+
+
+  
   if (!post) {
     return (
       <div >

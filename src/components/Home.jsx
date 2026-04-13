@@ -10,6 +10,9 @@ const [isLoading, setIsLoading] = useState(true);
 
 useEffect(()=>{
   const fetcher=async()=>{
+
+    setIsLoading(true)
+
     const res=await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts")
     const data=await res.json()
 
