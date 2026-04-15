@@ -1,21 +1,18 @@
-import './App.css'
-import {posts} from './data/posts';
+import './App.module.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Articles from './components/Articles.jsx'
+import PostDetail from './components/PostDetail.jsx'
+import Contact from './Contacts/Contact.jsx';
 
 export default function App() {
   return (
-
-    <div>
-      <h1>記事一覧</h1>
-      <div className="post-list">
-        {posts.map((post) => {
-          return (
-            <div key={post.id} style={{ marginBottom: '20px', borderBottom: '1px solid　#ccc' }}>
-              <h2>{post.title}</h2>
-              <p> {new Date(post.createdAt).toLocaleDateString()}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Articles />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+   
   );
 }
