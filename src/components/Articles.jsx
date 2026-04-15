@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import styles from './Home.module.css'
+import styles from './Articles.module.css'
 import { Link } from 'react-router-dom'
 
 
-export default function Home() {
+export default function Articles() {
 
 const [posts,setPosts]=useState([])
 const [isLoading, setIsLoading] = useState(true);
