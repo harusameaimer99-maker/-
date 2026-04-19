@@ -1,12 +1,23 @@
 import { useState } from 'react';
 
+interface Ts3{
+  name:string;
+  email:string;
+  message:string;
+}
+
 export default function Contact() {
+  
+interface Ts3Error {
+  name?: string;
+  email?: string;
+  message?: string;
+}
   
 
 
-
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState({});
+  const [form, setForm] = useState<Ts3>({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState<Ts3Eroor>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   
@@ -38,7 +49,7 @@ export default function Contact() {
 
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent) => {
     e.preventDefault(); 
     if (!validate()) return; 
 

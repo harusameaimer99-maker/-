@@ -8,9 +8,6 @@ interface Ts2{
   content:string;
 }
 
-interface Ts2res {
-  post: Ts2; 
-}
 
 
 export default function PostDetail() {
@@ -24,7 +21,7 @@ export default function PostDetail() {
         setIsLoading(true)
 
         const res=await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`)
-        const data =await res.json() as Ts2res;
+        const data =await res.json() as Ts2;
 
         setPost(data.post)
         setIsLoading(false)

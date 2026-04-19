@@ -1,8 +1,8 @@
 import './App.module.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Articles from './components/Articles.jsx'
-import PostDetail from './components/PostDetail.jsx'
-import Contact from './Contacts/Contact.jsx';
+import Articles from './components/Articles.tsx'
+import PostDetail from './components/PostDetail.tsx'
+import Contact from './Contacts/Contact.tsx';
 
 export default function App() {
   return (
